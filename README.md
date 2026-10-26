@@ -36,16 +36,15 @@ Get your Tinybird `read_pipes` token and region host from the [Tinybird dashboar
 
 ## Instrumenting your Vercel Log Drains
 
-Go to Vercel Dashboard and configure your Log Drains:
+Vercel Drains are available on the Pro and Enterprise plans. In the Vercel dashboard:
 
-- Choose your team scope on the dashboard, and go to **Team Settings > Log Drains**.
-- Select the **Projects** to send logs to Tinybird.
-- Select **Sources** you want to send logs to Tinybird.
-- Select **NDJSON** as Delivery Format.
-- Select **Environments** and **Sampling Rate**.
-- Set this URL `<YOUR_TINYBIRD_REGION_HOST>/v0/events?name=logs&x-vercel-verify=<your-x-vercel-verify-token>`
-- Select **Custom Headers**, add `Authorization` with the value `Bearer <YOUR_TINYBIRD_ADMIN_TOKEN>` and select **Add**.
-- Select **Verify** and create the Log Drain.
+- Go to **Team Settings > Drains** and select **Add Drain**.
+- Select **Logs** as the data type.
+- Select the **Projects**, log **Sources** and **Environments** to send to Tinybird, and optionally add sampling rules.
+- Select **Custom Endpoint** and choose **NDJSON** as the format.
+- Set this URL `<YOUR_TINYBIRD_REGION_HOST>/v0/events?name=logs`. If Vercel asks you to verify the endpoint with an `x-vercel-verify` value, append `&x-vercel-verify=<value>`.
+- Under **Custom Headers**, add `Authorization: Bearer <YOUR_TINYBIRD_ADMIN_TOKEN>`.
+- Select **Create Drain**. Vercel tests the endpoint when you create it.
 
 ## Local Development
 
@@ -59,7 +58,7 @@ cd tinybird
 tb local start
 tb login
 tb dev
-token ls  # copy an admin token
+tb token ls  # copy an admin token
 ```
 
 Configure the Next.js application:
