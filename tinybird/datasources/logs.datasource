@@ -4,7 +4,7 @@ DESCRIPTION >
 
 SCHEMA >
     `timestamp` DateTime64(3) `json:$.timestamp` DEFAULT now(),
-    `proxy_timestamp` DateTime64(3) `json:$.proxy_timestamp` DEFAULT now(),
+    `proxy_timestamp` DateTime64(3) `json:$.proxy.timestamp` DEFAULT now(),
     `level` LowCardinality(String) `json:$.level` DEFAULT '',
     `service` LowCardinality(String) `json:$.projectName` DEFAULT '',
     `source` LowCardinality(String) `json:$.source` DEFAULT '',
@@ -12,14 +12,14 @@ SCHEMA >
     `request_id` String `json:$.requestId` DEFAULT '',
     `environment` LowCardinality(String) `json:$.environment` DEFAULT '',
     `status_code` UInt16 `json:$.statusCode` DEFAULT 0,
-    `request_method` LowCardinality(String) `json:$.proxy_method` DEFAULT '',
-    `request_path` String `json:$.proxy_path` DEFAULT '',
+    `request_method` LowCardinality(String) `json:$.proxy.method` DEFAULT '',
+    `request_path` String `json:$.proxy.path` DEFAULT '',
     `path` String `json:$.path` DEFAULT '',
     `resource` String `json:$.source` DEFAULT '',
     `request_type` String `json:$.type` DEFAULT '',
     `host` LowCardinality(String) `json:$.host` DEFAULT '',
     `proxy` String `json:$.proxy` DEFAULT '{}',
-    `vercel_cache` LowCardinality(String) `json:$.proxy_vercelCache` DEFAULT '',
+    `vercel_cache` LowCardinality(String) `json:$.proxy.vercelCache` DEFAULT '',
     `branch` LowCardinality(String) `json:$.branch` DEFAULT '',
     `execution_region` LowCardinality(String) `json:$.executionRegion` DEFAULT '',
     `deployment_id` String `json:$.deploymentId` DEFAULT ''

@@ -10,7 +10,7 @@ cd tinybird
 tb local start
 tb login
 tb dev
-token ls  # copy an admin token
+tb token ls  # copy an admin token
 ```
 
 Deploy the Tinybird project to the cloud:
